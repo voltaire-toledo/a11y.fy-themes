@@ -1,79 +1,97 @@
-# VTG Theme Pack [a11y.fy]
+# a11y.fy Themes [Work in Progress]
 
-> **Curated & Engineered by Voltaire Toledo** for high-contrast accessibility and zero-glare, fatigue-free coding.  
-> **Published by [Proventuras](https://proventuras.com)**.
+> 🚧 **Work in Progress**: This theme collection is actively being remediated and benchmarked against real-world eye strain. We are taking community-favorite themes and methodically repairing contrast traps one theme at a time.
+>
+> **Curated & Tuned by [Voltaire Toledo](https://proventuras.com)**  
+> **Published by [ProVenturas](https://proventuras.com)**
 
-[![Visual Studio Marketplace](https://img.shields.io/badge/VS_Code_Marketplace-a11y.fy-blue?logo=visual-studio-code)](https://marketplace.visualstudio.com)
-[![WCAG Level](https://img.shields.io/badge/WCAG_Compliance-Level_AAA_%2F_AA+-success)](#the-a11yfy-standard)
-[![Author](https://img.shields.io/badge/Author-Voltaire_Toledo-ff75a0)](https://proventuras.com)
-
----
-
-## Why [a11y.fy]?
-
-Standard community dark themes are aesthetically pleasing but frequently suffer from severe visual accessibility defects:
-* **The "Invisible Text" Trap**: Muted pastel status bars with white text yielding barely **1.47:1** contrast (failing WCAG).
-* **Flat Panel Mud**: The Activity Bar, Sidebar, and Editor canvas sharing the exact same dark hex, creating a flat smear in ambient room lighting.
-* **Ghost Comments & Dark Blue Drowning**: Murky olive comments and deep navy properties that disappear into dark backgrounds.
-* **The "High Contrast" Harshness**: Built-in OS high-contrast themes often resort to neon-green borders and stark, blinding pure-black boxes.
-
-**VTG Theme Pack `[a11y.fy]` solves this.** It applies **Accessibility Color Remediation** to the most popular community themes, precision-tuning them to **WCAG AAA (~7.0:1–11.0:1)** standards using subtle luminance stepping and luminous syntax tokens—without harsh borders or jarring neon outlines.
+[![GitHub Repo](https://img.shields.io/badge/GitHub-a11y.fy--themes-blue?logo=github)](https://github.com/voltaire-toledo/a11y.fy-themes)
+[![WCAG Standards](https://img.shields.io/badge/Standards-WCAG_AAA_%2F_AA+-success)](#why-a11yfy-exists)
+[![Status](https://img.shields.io/badge/Status-Active_Remediation-orange)](#remediation-roadmap)
 
 ---
 
-## Included Themes in the Pack
+## Why a11y.fy Exists
 
-All editions retain the soul of the original design while eliminating visual fatigue:
+I love great aesthetic themes—especially soft pastels and vibrant syntax hues like *Pink Cat Boo*, *Catppuccin*, and *Tokyo Night*. 
 
-| Theme Name | Focus & Calibration |
-| :--- | :--- |
-| **Pink Cat Boo [a11y.fy]** | Seamless `#302f42` window-blended status bar, luminous sky blue properties (`#93d5f8`), and silver-lavender comments (`#a2a8c2` at 6.2:1). |
-| **Catppuccin Mocha [a11y.fy]** | Enhanced pastel definition and elevated gutter/comment contrast. |
-| **Catppuccin Macchiato [a11y.fy]** | Mid-dark flavor with heightened token separation. |
-| **Catppuccin Frappé [a11y.fy]** | Low-glare muted slate with WCAG AAA token calibrations. |
-| **Tokyo Night [a11y.fy]** | Tokyo downtown neon palette with boosted comment and property contrast. |
-| **Tokyo Night Storm [a11y.fy]** | Calibrated blue-gray canvas with high-legibility terminal ANSI palette. |
-| **Dracula [a11y.fy]** | Iconic gothic contrast without eye-straining gutter washout. |
-| **Dracula Soft [a11y.fy]** | Softened background with enhanced token legibility. |
-| **One Dark Pro [a11y.fy]** | Atom-inspired classic with lifted dark blue properties and clean inactive tabs. |
-| **One Dark Pro Darker [a11y.fy]** | Deep charcoal canvas with high-contrast UI chrome. |
-| **Gruvbox Material Dark [a11y.fy]** | Warm retro-earthy palette with calibrated syntax luminances. |
-| **SynthWave '84 [a11y.fy]** | Retro 80s outrun aesthetic tuned for daylight legibility. |
+However, as someone living with a vision impairment, spending 8+ hours a day in these themes revealed how many hidden traps exist in standard community palettes:
+
+* **The "Invisible Text" Trap**: Pastel status bars where white text on light peach produces a **1.47:1** ratio—practically invisible unless you lean right against the screen.
+* **The "Glaring Flashlight" Bar**: When an entire monitor width is filled with high-luminance peach along the bottom, it causes painful glare in low-light rooms.
+* **Ghost Comments**: Murky olive or dark moss green comments that blend straight into the background canvas.
+* **Dark Blue Drowning**: Deep navy property names and terminal path colors that drop below a readable contrast against dark themes.
+* **The Out-of-Focus Olive Trap**: When you select a modified file in the file explorer and switch back to code, the unselected filename turns into an unreadable olive smudge (`#a8a70f` on `#765d36`).
+
+### The Goal: High Contrast Without the "High Contrast" Harshness
+Built-in OS high-contrast themes often resort to neon-green outlines on stark `#000000` pitch-black boxes. That creates visual jarring.
+
+`[a11y.fy]` takes a human approach: **keep the artistic identity, mood, and beauty of the theme, but fix the contrast mathematics so your eyes don't hurt.**
 
 ---
 
-## The [a11y.fy] Standard
+## 🌸 Theme 1: Pink Cat Boo [a11y.fy]
 
-1. **Status Bar Comfort**: Eliminates uncalibrated glaring backgrounds; balances text to **WCAG AAA (>7.0:1)**.
-2. **Luminous Sky Blues**: Replaces dark navy properties that drown on dark displays with clear sky blues (`#93d5f8`).
-3. **Legible Comments**: Every comment scope is guaranteed at least **WCAG AA+ (>5.0:1)**.
-4. **Git Decoration Legibility**: Canary yellow (`#fde047`) and emerald green (`#4ade80`) ensure modified/untracked files in the Explorer tree remain crisp even when out of focus.
-5. **Tone Stepping Over Harsh Borders**: Clean, borderless visual hierarchy separating rails, sidebars, and workspaces.
+Here is the direct before-and-after visual breakdown showing what changed and why:
+
+![Pink Cat Boo Before and After Comparison](./docs/assets/pink-cat-boo-split-comparison.svg)
+
+### What Changed in Pink Cat Boo:
+
+| Element | The "Before" Problem | The "After" a11y.fy Solution | Contrast Impact |
+| :--- | :--- | :--- | :--- |
+| **Status Bar** | Full bright peach bar with white text causing glare & unreadable text | Window-matched `#302f42` bar with soft rose text (`#fed7e2`) and WSL accent pill | **9.4 : 1 (WCAG AAA)** — Zero glare |
+| **Comments** | Murky olive moss (`#6D7A72`) | Crisp Silver-Lavender (`#a2a8c2`) | **6.2 : 1 (WCAG AA+)** |
+| **Properties** | Dark cobalt blue (`#4169e1` / `#6089B4`) drowning on dark canvas | Luminous Light Sky Blue (`#93d5f8`) via semantic tokens | **9.8 : 1 (WCAG AAA)** |
+| **Inactive Filenames** | Unfocused modified files turned olive on mud brown (`#a8a70f` on `#765d36`) | High-contrast berry-slate background (`#382436`) with canary yellow git text (`#fde047`) | **8.6 : 1 (WCAG AAA)** |
+| **Terminal Blues** | Dark cobalt terminal paths and Git output | Accessible Sky Blue (`#70b8ff`) | **8.2 : 1 (WCAG AAA)** |
+| **Tab Dividers** | Lost separation between tabs | Restored subtle vertical dividers (`#33384c88`) | Instant tab boundary recognition |
+
+> 🎮 **Want to slide between the two live?**  
+> Check out the interactive split-slider in [`docs/index.html`](https://voltaire-toledo.github.io/a11y.fy-themes/ or locally).
 
 ---
 
-## Interactive Comparison Landing Page
+## 🗺️ Remediation Roadmap
 
-An interactive before-and-after comparison slider is available in [`docs/index.html`](./docs/index.html). Open it in any modern browser to inspect real-time split testing between original themes and the `[a11y.fy]` editions.
+We imported the top community dark themes into this workspace. Each one is currently queued for hands-on remediation:
+
+- [x] **Pink Cat Boo [a11y.fy]** — ✅ *Remediation Complete*
+- [ ] **Catppuccin Mocha [a11y.fy]** — ⏳ *In Progress*
+- [ ] **Catppuccin Macchiato [a11y.fy]** — ⏳ *Queued*
+- [ ] **Catppuccin Frappé [a11y.fy]** — ⏳ *Queued*
+- [ ] **Tokyo Night [a11y.fy]** — ⏳ *Queued*
+- [ ] **Tokyo Night Storm [a11y.fy]** — ⏳ *Queued*
+- [ ] **Dracula [a11y.fy]** — ⏳ *Queued*
+- [ ] **Dracula Soft [a11y.fy]** — ⏳ *Queued*
+- [ ] **One Dark Pro [a11y.fy]** — ⏳ *Queued*
+- [ ] **One Dark Pro Darker [a11y.fy]** — ⏳ *Queued*
+- [ ] **Gruvbox Material Dark [a11y.fy]** — ⏳ *Queued*
+- [ ] **SynthWave '84 [a11y.fy]** — ⏳ *Queued*
 
 ---
 
-## Development & Local Installation
+## How to Test Locally on Your Machine
 
-### Package Offline `.vsix`
+You can package and install the current release directly into VS Code or VS Code Insiders:
+
 ```bash
+# 1. Clone this repository
+git clone https://github.com/voltaire-toledo/a11y.fy-themes.git
+cd a11y.fy-themes
+
+# 2. Package into a local .vsix
 npx @vscode/vsce package
-```
 
-### Install Locally
-```bash
+# 3. Install in VS Code
 code --install-extension vtg-pub-vscode-themes-0.1.0.vsix
+# (or 'code-insiders' if using Insiders)
 ```
 
 ---
 
-## Authors & Credits
+## Author & Engineering
 
-* **Engineering & Curation**: [Voltaire Toledo](https://proventuras.com)
+* **Curator & Lead**: [Voltaire Toledo](https://proventuras.com)
 * **Publisher**: [ProVenturas](https://proventuras.com)
 * **License**: MIT

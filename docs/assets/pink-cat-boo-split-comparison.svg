@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace">
+  <defs>
+    <clipPath id="leftClip">
+      <rect x="0" y="0" width="500" height="580" />
+    </clipPath>
+    <clipPath id="rightClip">
+      <rect x="500" y="0" width="500" height="580" />
+    </clipPath>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Window Shell -->
+  <rect x="10" y="10" width="980" height="560" rx="10" fill="#181a24" filter="url(#shadow)"/>
+
+  <!-- ==============================================
+       LEFT SIDE: ORIGINAL PINK CAT BOO (BEFORE)
+       ============================================== -->
+  <g clip-path="url(#leftClip)">
+    <!-- Title Bar -->
+    <rect x="10" y="10" width="980" height="36" fill="#2d2f42"/>
+    <circle cx="32" cy="28" r="5.5" fill="#ff5f56"/>
+    <circle cx="50" cy="28" r="5.5" fill="#ffbd2e"/>
+    <circle cx="68" cy="28" r="5.5" fill="#27c93f"/>
+    <text x="250" y="32" fill="#9498a1" font-size="12" text-anchor="middle">Pink Cat Boo (Original) — ❌ Low Contrast</text>
+
+    <!-- Activity Bar (Shares same hex as editor: #202330 - visual mud) -->
+    <rect x="10" y="46" width="48" height="500" fill="#202330"/>
+    <rect x="24" y="62" width="20" height="18" rx="2" fill="none" stroke="#fde3e8" stroke-width="1.8"/>
+
+    <!-- Sidebar -->
+    <rect x="58" y="46" width="180" height="500" fill="#2d2f42"/>
+    <text x="72" y="72" fill="#9498a1" font-size="11" font-weight="bold">EXPLORER</text>
+    <text x="72" y="98" fill="#9498a1" font-size="12">▾ VTG-THEMES</text>
+    <rect x="58" y="112" width="180" height="24" fill="#765d36"/> <!-- Muddy selection -->
+    <text x="82" y="128" fill="#a8a70f" font-size="12">📄 benchmark.ts</text> <!-- Sickly olive text -->
+    <text x="82" y="152" fill="#9498a1" font-size="12">📄 package.json</text>
+
+    <!-- Editor Canvas -->
+    <rect x="238" y="46" width="752" height="340" fill="#202330"/>
+    <rect x="238" y="46" width="160" height="32" fill="#202330"/>
+    <text x="254" y="66" fill="#fe7c8e" font-size="12">📄 benchmark.ts</text>
+
+    <!-- Code Content -->
+    <text x="254" y="105" fill="#6D7A72" font-size="12">// ❌ Murky moss comment (3.4:1 contrast)</text>
+    <text x="254" y="130" fill="#FFF0F5" font-size="12"><tspan fill="#FF4791" font-weight="bold">export class</tspan> ThemeAuditor {</text>
+    <text x="270" y="155" fill="#FFF0F5" font-size="12"><tspan fill="#FF4791">public</tspan> <tspan fill="#4169e1">luminanceRatio</tspan> = <tspan fill="#FF38A2">1.47</tspan>;</text>
+    <text x="270" y="180" fill="#6D7A72" font-size="12">// ⚠️ Dark blue property drowns on dark background</text>
+    <text x="270" y="205" fill="#FFF0F5" font-size="12"><tspan fill="#FF4791">public</tspan> <tspan fill="#4169e1">isCompliant</tspan> = <tspan fill="#FF4791">false</tspan>;</text>
+    <text x="254" y="230" fill="#FFF0F5" font-size="12">}</text>
+
+    <!-- Terminal Panel -->
+    <rect x="238" y="386" width="752" height="134" fill="#202330"/>
+    <text x="254" y="408" fill="#9498a1" font-size="11" font-weight="bold">TERMINAL</text>
+    <text x="254" y="432" fill="#3b5998" font-size="12">PS D:\vtg-themes&gt; npx @vscode/vsce package</text>
+    <text x="254" y="454" fill="#888888" font-size="12">[warning] Status bar text fails WCAG minimum ratio.</text>
+
+    <!-- Original Status Bar (The 1.47:1 fail) -->
+    <rect x="10" y="520" width="980" height="26" fill="#f3b4bf"/>
+    <text x="24" y="537" fill="#ffffff" font-size="11" font-weight="bold">⚠️ Status Bar: White on peach (1.47:1 - Invisible)</text>
+  </g>
+
+  <!-- ==============================================
+       RIGHT SIDE: PINK CAT BOO [A11Y.FY] (AFTER)
+       ============================================== -->
+  <g clip-path="url(#rightClip)">
+    <!-- Title Bar -->
+    <rect x="10" y="10" width="980" height="36" fill="#2d2f42"/>
+    <circle cx="32" cy="28" r="5.5" fill="#ff5f56"/>
+    <circle cx="50" cy="28" r="5.5" fill="#ffbd2e"/>
+    <circle cx="68" cy="28" r="5.5" fill="#27c93f"/>
+    <text x="750" y="32" fill="#ffccd5" font-size="12" text-anchor="middle">Pink Cat Boo [a11y.fy] — ✅ WCAG Calibrated</text>
+
+    <!-- Activity Bar (Seamless borderless tone) -->
+    <rect x="10" y="46" width="48" height="500" fill="#202330"/>
+    <rect x="24" y="62" width="20" height="18" rx="2" fill="none" stroke="#fed7e2" stroke-width="1.8"/>
+
+    <!-- Sidebar -->
+    <rect x="58" y="46" width="180" height="500" fill="#2d2f42"/>
+    <text x="72" y="72" fill="#ffccd5" font-size="11" font-weight="bold">EXPLORER</text>
+    <text x="72" y="98" fill="#f5edf2" font-size="12">▾ VTG-THEMES</text>
+    <rect x="58" y="112" width="180" height="24" fill="#382436"/> <!-- High contrast berry slate -->
+    <text x="82" y="128" fill="#fde047" font-size="12" font-weight="bold">📄 benchmark.ts</text> <!-- Crisp canary yellow git decoration -->
+    <text x="82" y="152" fill="#f5edf2" font-size="12">📄 package.json</text>
+
+    <!-- Editor Canvas -->
+    <rect x="238" y="46" width="752" height="340" fill="#202330"/>
+    <rect x="238" y="46" width="160" height="32" fill="#202330"/>
+    <line x1="238" y1="46" x2="398" y2="46" stroke="#fe7c8e" stroke-width="2"/>
+    <text x="254" y="66" fill="#ff75a0" font-size="12">📄 benchmark.ts</text>
+
+    <!-- Code Content -->
+    <text x="254" y="105" fill="#a2a8c2" font-size="12">// ✅ Crisp Silver-Lavender comment (6.2:1 AA+)</text>
+    <text x="254" y="130" fill="#FFF0F5" font-size="12"><tspan fill="#FF4791" font-weight="bold">export class</tspan> ThemeAuditor {</text>
+    <text x="270" y="155" fill="#FFF0F5" font-size="12"><tspan fill="#FF4791">public</tspan> <tspan fill="#93d5f8" font-weight="bold">luminanceRatio</tspan> = <tspan fill="#FF38A2">9.4</tspan>;</text>
+    <text x="270" y="180" fill="#a2a8c2" font-size="12">// ✅ Luminous Sky Blue property (9.8:1 AAA readability)</text>
+    <text x="270" y="205" fill="#FFF0F5" font-size="12"><tspan fill="#FF4791">public</tspan> <tspan fill="#93d5f8" font-weight="bold">isCompliant</tspan> = <tspan fill="#FF4791">true</tspan>;</text>
+    <text x="254" y="230" fill="#FFF0F5" font-size="12">}</text>
+
+    <!-- Terminal Panel -->
+    <rect x="238" y="386" width="752" height="134" fill="#202330"/>
+    <text x="254" y="408" fill="#cbd2e1" font-size="11" font-weight="bold">TERMINAL</text>
+    <text x="254" y="432" fill="#70b8ff" font-size="12">PS D:\vtg-themes&gt; npx @vscode/vsce package</text>
+    <text x="254" y="454" fill="#4ade80" font-size="12">DONE  Packaged: vtg-pub-vscode-themes-0.1.0.vsix (Verified AAA)</text>
+
+    <!-- A11y.fy Status Bar (Calibrated #302f42 bar with rose text) -->
+    <rect x="10" y="520" width="980" height="26" fill="#302f42"/>
+    <rect x="10" y="520" width="60" height="26" fill="#d88b99"/>
+    <text x="18" y="537" fill="#1a0f18" font-size="11" font-weight="bold">&gt;&lt; WSL</text>
+    <text x="80" y="537" fill="#fed7e2" font-size="11" font-weight="bold">✅ Calibrated #302f42 Bar (9.4:1 AAA — No Glare)</text>
+  </g>
+
+  <!-- ==============================================
+       SPLIT DIVIDER LINE & BADGE (CENTER)
+       ============================================== -->
+  <line x1="500" y1="10" x2="500" y2="570" stroke="#ff75a0" stroke-width="3"/>
+  <circle cx="500" cy="290" r="22" fill="#181a24" stroke="#ff75a0" stroke-width="2.5"/>
+  <text x="500" y="295" fill="#ff75a0" font-size="14" font-weight="bold" text-anchor="middle">⇄</text>
+  
+  <!-- Left/Right Indicator Badges -->
+  <rect x="400" y="50" width="85" height="24" rx="4" fill="#2d2f42" stroke="#4a4d65" stroke-width="1"/>
+  <text x="442" y="66" fill="#9498a1" font-size="11" font-weight="bold" text-anchor="middle">BEFORE</text>
+
+  <rect x="515" y="50" width="85" height="24" rx="4" fill="#2d2f42" stroke="#ff75a0" stroke-width="1"/>
+  <text x="557" y="66" fill="#ff75a0" font-size="11" font-weight="bold" text-anchor="middle">AFTER</text>
+</svg>
