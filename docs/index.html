@@ -6,8 +6,8 @@
   <title>Pink Cat Boo: Before & After [a11y.fy] Comparison</title>
   <style>
     :root {
-      --bg-page: #0f1117;
-      --card-bg: #161822;
+      --bg-page: #0d0f15;
+      --card-bg: #151823;
       --text-main: #f1f5f9;
       --text-muted: #94a3b8;
       --accent: #ff75a0;
@@ -17,18 +17,19 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg-page);
       color: var(--text-main);
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     header {
       text-align: center;
-      max-width: 800px;
+      max-width: 840px;
       margin-bottom: 2rem;
     }
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
+      font-weight: 800;
       margin-bottom: 0.5rem;
       background: linear-gradient(135deg, #ff75a0, #f3b4bf);
       -webkit-background-clip: text;
@@ -40,14 +41,16 @@
     }
     .badge-bar {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       justify-content: center;
-      margin-top: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
     }
     .badge {
-      background: #242636;
+      background: #1e202e;
+      border: 1px solid #33384c;
       border-radius: 9999px;
-      padding: 0.35rem 0.9rem;
+      padding: 0.4rem 1rem;
       font-size: 0.85rem;
       color: #fed7e2;
     }
@@ -56,12 +59,12 @@
     .compare-container {
       position: relative;
       width: 100%;
-      max-width: 1100px;
-      aspect-ratio: 16 / 10;
+      max-width: 1150px;
+      height: 620px;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      background: #1e1e24;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.7);
+      background: #181a24;
       user-select: none;
     }
     .mock-window {
@@ -73,44 +76,146 @@
       display: flex;
       flex-direction: column;
       font-family: "JetBrainsMono Nerd Font", "JuliaMonoForced Nerd Font", monospace;
-      font-size: 14px;
+      font-size: 13.5px;
     }
     
-    /* Top Bar */
+    /* VS Code Title Bar */
     .window-header {
       height: 38px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 1rem;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 500;
     }
+    .traffic-lights {
+      display: flex;
+      gap: 8px;
+    }
+    .traffic-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
     .window-body {
       flex: 1;
       display: flex;
+      overflow: hidden;
     }
+
+    /* Activity Bar Rail */
     .activity-bar {
       width: 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 12px;
-      gap: 16px;
+      padding-top: 10px;
+      gap: 18px;
     }
+    .activity-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.6;
+      cursor: pointer;
+    }
+    .activity-icon.active {
+      opacity: 1;
+    }
+    .codicon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Explorer Sidebar */
     .sidebar {
-      width: 220px;
-      padding: 12px;
+      width: 230px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      overflow: hidden;
     }
-    .editor {
+    .sidebar-section-header {
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tree-item {
+      padding: 5px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .tree-item.folder {
+      font-weight: 600;
+    }
+    .tree-item.indent-1 {
+      padding-left: 28px;
+    }
+    .tree-item.indent-2 {
+      padding-left: 42px;
+    }
+    .tree-item.active {
+      background: rgba(254, 124, 142, 0.15);
+    }
+
+    /* Editor Canvas */
+    .editor-container {
       flex: 1;
-      padding: 16px 20px;
-      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .tab-bar {
+      height: 35px;
+      display: flex;
+      align-items: center;
+    }
+    .tab {
+      height: 100%;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      position: relative;
+    }
+    .tab.active {
+      border-top: 2px solid var(--accent);
+    }
+    .editor-content {
+      flex: 1;
+      display: flex;
+      padding: 14px 0;
+      line-height: 1.65;
+    }
+    .line-numbers {
+      width: 46px;
+      text-align: right;
+      padding-right: 14px;
+      user-select: none;
+    }
+    .code-text {
+      flex: 1;
+      padding-left: 8px;
       white-space: pre;
       overflow: hidden;
     }
+
+    /* Status Bar */
     .status-bar {
       height: 26px;
       display: flex;
@@ -120,31 +225,72 @@
       font-size: 12px;
       font-weight: 600;
     }
+    .status-left, .status-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .remote-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 26px;
+      padding: 0 10px;
+      margin-left: -12px;
+    }
 
-    /* Original Theme Styles */
+    /* ---------------------------------
+       Original Theme Palette 
+       --------------------------------- */
     .original {
       z-index: 1;
     }
     .original .window-header { background: #2d2f42; color: #9498a1; }
     .original .activity-bar { background: #202330; color: #fde3e8; }
     .original .sidebar { background: #2d2f42; color: #9498a1; }
-    .original .editor { background: #202330; color: #FFF0F5; }
-    .original .status-bar { background: #f3b4bf; color: #ffffff; } /* The 1.47:1 fail */
+    .original .sidebar-section-header { background: #202330; color: #9498a1; }
+    .original .tab-bar { background: #2d2f42; }
+    .original .tab.inactive { background: #2d2f42; color: #9498a1; }
+    .original .tab.active { background: #202330; color: #fe7c8e; }
+    .original .editor-container { background: #202330; }
+    .original .line-numbers { color: #5a5f78; }
+    .original .code-text { color: #FFF0F5; }
+    .original .status-bar { background: #f3b4bf; color: #ffffff; } /* 1.47:1 fail */
+    .original .remote-badge { background: #f3b4bf; color: #ffffff; }
 
-    /* A11y.fy Theme Styles */
+    /* ---------------------------------
+       A11y.fy Theme Palette 
+       --------------------------------- */
     .a11y-fy {
       z-index: 2;
       width: 50%;
       overflow: hidden;
       border-right: 2px solid var(--accent);
     }
-    .a11y-fy .window-header { background: #242636; color: #ffb3c6; }
+    .a11y-fy .window-header { background: #242636; color: #ffccd5; }
     .a11y-fy .activity-bar { background: #181a24; color: #fed7e2; }
     .a11y-fy .sidebar { background: #242636; color: #f5edf2; }
-    .a11y-fy .editor { background: #1e202c; color: #fdf2f8; }
-    .a11y-fy .status-bar { background: #f3b4bf; color: #1d1420; } /* The 10.6:1 AAA pass */
+    .a11y-fy .sidebar-section-header { background: #1c1e2b; color: #ffccd5; }
+    .a11y-fy .tab-bar { background: #181a24; }
+    .a11y-fy .tab.inactive { background: #202231; color: #cbd2e1; }
+    .a11y-fy .tab.active { background: #1e202c; color: #ff75a0; }
+    .a11y-fy .editor-container { background: #1e202c; }
+    .a11y-fy .line-numbers { color: #7c829e; }
+    .a11y-fy .code-text { color: #fdf2f8; }
+    .a11y-fy .status-bar { background: #f3b4bf; color: #1d1420; } /* 10.6:1 AAA pass */
+    .a11y-fy .remote-badge { background: #202330; color: #fce7f3; }
 
-    /* Slider Handle */
+    /* Syntax Tokens */
+    .kw { color: #FF4791; font-weight: bold; }
+    .fn { color: #ffc85b; }
+    .str { color: #FAE8B6; }
+    .num { color: #FF38A2; }
+    .cmt-bad { color: #6D7A72; }
+    .cmt-good { color: #a2a8c2; }
+    .typ { color: #ff94b8; }
+    .prop { color: #EBA4AC; }
+
+    /* Slider UI */
     .slider-handle {
       position: absolute;
       top: 0;
@@ -172,10 +318,8 @@
       font-size: 16px;
       font-weight: bold;
       pointer-events: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.6);
     }
-
-    /* Range input overlay for full touch/mouse control */
     .slider-input {
       position: absolute;
       top: 0;
@@ -186,98 +330,198 @@
       cursor: ew-resize;
       z-index: 20;
     }
-
-    /* Code Syntax Simulation */
-    .kw { color: #FF4791; font-weight: bold; }
-    .fn { color: #ffc85b; }
-    .str { color: #FAE8B6; }
-    .num { color: #FF38A2; }
-    .cmt-bad { color: #6D7A72; } /* Original murky comment */
-    .cmt-good { color: #a2a8c2; } /* A11y.fy crisp lavender */
-    .typ { color: #ff94b8; }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Pink Cat Boo [a11y.fy]</h1>
-    <p class="subtitle">Direct WCAG Contrast & Luminance Layering Comparison</p>
+    <p class="subtitle">Real-World WCAG Contrast Calibration & Surface Layering</p>
     <div class="badge-bar">
       <span class="badge">Status Bar: 1.47:1 ➔ 10.6:1 (AAA)</span>
       <span class="badge">Comments: 3.4:1 ➔ 6.2:1 (AA+)</span>
-      <span class="badge">Surface Tone Elevation (No Borders)</span>
+      <span class="badge">Tone-Stepping: Rail ➔ Sidebar ➔ Editor</span>
     </div>
   </header>
 
   <div class="compare-container" id="compareBox">
-    <!-- Original (Right / Underneath) -->
+    <!-- ==============================================
+         ORIGINAL THEME MOCKUP (RIGHT SIDE / BASE)
+         ============================================== -->
     <div class="mock-window original">
       <div class="window-header">
-        <span>Pink Cat Boo (Original)</span>
+        <div class="traffic-lights">
+          <div class="traffic-dot dot-red"></div>
+          <div class="traffic-dot dot-yellow"></div>
+          <div class="traffic-dot dot-green"></div>
+        </div>
+        <span>theme-audit-benchmark.ts — Pink Cat Boo (Original)</span>
+        <div style="width: 50px;"></div>
       </div>
       <div class="window-body">
         <div class="activity-bar">
-          <div>📁</div><div>🔍</div><div>🌿</div>
+          <!-- Official VS Code Codicon SVG Outlines -->
+          <div class="activity-icon active" title="Explorer">
+            <svg class="codicon" viewBox="0 0 16 16"><path d="M14.5 2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8.5a1.5 1.5 0 0 0 1.5-1.5V3.5A1.5 1.5 0 0 0 14.5 2zm.5 12a.5.5 0 0 1-.5.5H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h8.5a.5.5 0 0 1 .5.5v10.5zM2 5v9.5A1.5 1.5 0 0 0 3.5 16h9v-1h-9a.5.5 0 0 1-.5-.5V5H2z"/></svg>
+          </div>
+          <div class="activity-icon" title="Search">
+            <svg class="codicon" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+          </div>
+          <div class="activity-icon" title="Source Control">
+            <svg class="codicon" viewBox="0 0 16 16"><path d="M15 6.5a2.5 2.5 0 0 0-3.95-2.02l-2.03-2.03a2.5 2.5 0 1 0-1.42 1.42l2.03 2.03a2.484 2.484 0 0 0-.13.6A2.5 2.5 0 0 0 12.5 9c.39 0 .76-.09 1.09-.25l-2.43 2.43a2.5 2.5 0 1 0 1.41 1.41l2.67-2.67c.5.37 1.11.58 1.76.58a2.5 2.5 0 0 0 0-5zM6 3.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm5 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm2.5-6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
+          </div>
+          <div class="activity-icon" title="Run & Debug">
+            <svg class="codicon" viewBox="0 0 16 16"><path d="M11.5 3.5l1.65-1.65-.7-.7-1.74 1.74A5.955 5.955 0 0 0 8 2.5c-.98 0-1.9.24-2.71.66L3.55 1.15l-.7.7 1.65 1.65A6.012 6.012 0 0 0 2 8v1h2v-.5c0-.62.15-1.2.4-1.72L2.69 8.49l.7.7 1.73-1.73c.47.41 1.02.73 1.63.92V14.5a1.5 1.5 0 0 0 1.5 1.5h.5a1.5 1.5 0 0 0 1.5-1.5V8.38c.61-.19 1.16-.51 1.63-.92l1.73 1.73.7-.7-1.71-1.71c.25.52.4 1.1.4 1.72V9h2V8a6.012 6.012 0 0 0-2.5-4.5zM9 14.5a.5.5 0 0 1-.5.5h-.5a.5.5 0 0 1-.5-.5V9h1.5v5.5zm-.5-6.5h-1a4.982 4.982 0 0 1-3.46-1.4A4.966 4.966 0 0 1 3 4.5c0-.82.2-1.59.56-2.27A4.986 4.986 0 0 1 8 3.5c1.78 0 3.34.93 4.22 2.33.48.77.78 1.68.78 2.67h-4.5z"/></svg>
+          </div>
+          <div class="activity-icon" title="Extensions">
+            <svg class="codicon" viewBox="0 0 16 16"><path d="M14 9V6a2 2 0 0 0-2-2H9V2.5A1.5 1.5 0 0 0 7.5 1h-1A1.5 1.5 0 0 0 5 2.5V4H2a2 2 0 0 0-2 2v3h1.5A1.5 1.5 0 0 1 3 10.5v1A1.5 1.5 0 0 1 1.5 13H0v3h3v-1.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5V16h3v-2h2a2 2 0 0 0 2-2v-3h-1.5a1.5 1.5 0 0 1-1.5-1.5v-1a1.5 1.5 0 0 1 1.5-1.5H14zm-1 2h-1.5a2.5 2.5 0 0 0-2.5 2.5V15H8v-1.5A2.5 2.5 0 0 0 5.5 11h-1a2.5 2.5 0 0 0-2.5 2.5V15H1v-1h.5A2.5 2.5 0 0 0 4 11.5v-1A2.5 2.5 0 0 0 1.5 8H1V6a1 1 0 0 1 1-1h4V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5V5h4a1 1 0 0 1 1 1v2h-1.5A2.5 2.5 0 0 0 9 10.5v1a2.5 2.5 0 0 0 2.5 2.5H13v-3z"/></svg>
+          </div>
         </div>
+
         <div class="sidebar">
-          <div style="font-size: 11px; text-transform: uppercase;">Explorer</div>
-          <div>▸ src</div>
-          <div style="padding-left: 12px;">📄 auditor.ts</div>
-          <div style="padding-left: 12px;">📄 benchmark.ts</div>
+          <div class="sidebar-section-header">
+            <span>Explorer</span>
+            <span>•••</span>
+          </div>
+          <div class="tree-item folder">▾ VTG-THEME-PACK</div>
+          <div class="tree-item indent-1 folder">▾ samples</div>
+          <div class="tree-item indent-2 active">📄 theme-audit-benchmark.ts</div>
+          <div class="tree-item indent-1">📄 package.json</div>
+          <div class="tree-item indent-1">📄 README.md</div>
         </div>
-        <div class="editor"><span class="cmt-bad">// ❌ Murky comment (3.4:1 contrast - hard to read in daylight)</span>
+
+        <div class="editor-container">
+          <div class="tab-bar">
+            <div class="tab active">
+              <span>📄 theme-audit-benchmark.ts</span>
+            </div>
+            <div class="tab inactive">
+              <span>package.json</span>
+            </div>
+          </div>
+          <div class="editor-content">
+            <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</div>
+            <div class="code-text"><span class="cmt-bad">// ❌ Murky comment (3.4:1 contrast - washed out in daylight)</span>
 <span class="kw">import</span> { <span class="typ">EventEmitter</span> } <span class="kw">from</span> <span class="str">"node:events"</span>;
 
-<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> {
-  <span class="kw">private readonly</span> <span class="fn">version</span> = <span class="str">"original"</span>;
+<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> <span class="kw">extends</span> <span class="typ">EventEmitter</span> {
+  <span class="kw">private readonly</span> <span class="prop">version</span>: <span class="typ">string</span> = <span class="str">"original"</span>;
 
-  <span class="kw">public async</span> <span class="fn">auditContrast</span>(): <span class="typ">Promise</span>&lt;<span class="typ">number</span>&gt; {
-    <span class="kw">const</span> <span class="fn">ratio</span> = <span class="num">1.47</span>; <span class="cmt-bad">// Fails WCAG AA</span>
-    <span class="kw">return</span> <span class="fn">ratio</span>;
+  <span class="kw">public async</span> <span class="fn">evaluateContrast</span>(<span class="prop">ratio</span>: <span class="typ">number</span>): <span class="typ">Promise</span>&lt;<span class="typ">boolean</span>&gt; {
+    <span class="kw">if</span> (<span class="prop">ratio</span> &lt; <span class="num">4.5</span>) {
+      <span class="cmt-bad">// White text on peach status bar: 1.47:1 fail</span>
+      <span class="kw">return false</span>;
+    }
+    <span class="kw">return true</span>;
   }
 }</div>
+          </div>
+        </div>
       </div>
       <div class="status-bar">
-        <span>⚠️ Status Bar: White on peach (1.47:1 - Invisible)</span>
-        <span>UTF-8 • TypeScript</span>
+        <div class="status-left">
+          <span class="remote-badge">>< WSL</span>
+          <span>main*</span>
+          <span>⚠️ White text on peach (1.47:1)</span>
+        </div>
+        <div class="status-right">
+          <span>Ln 7, Col 12</span>
+          <span>UTF-8</span>
+          <span>TypeScript</span>
+        </div>
       </div>
     </div>
 
-    <!-- A11y.fy (Left / Revealing layer) -->
+    <!-- ==============================================
+         A11Y.FY THEME MOCKUP (LEFT SIDE / REVEAL LAYER)
+         ============================================== -->
     <div class="mock-window a11y-fy" id="revealLayer">
-      <div style="width: 1100px; height: 100%; display: flex; flex-direction: column;">
+      <div style="width: 1150px; height: 100%; display: flex; flex-direction: column;">
         <div class="window-header">
-          <span>Pink Cat Boo [a11y.fy]</span>
+          <div class="traffic-lights">
+            <div class="traffic-dot dot-red"></div>
+            <div class="traffic-dot dot-yellow"></div>
+            <div class="traffic-dot dot-green"></div>
+          </div>
+          <span>theme-audit-benchmark.ts — Pink Cat Boo [a11y.fy]</span>
+          <div style="width: 50px;"></div>
         </div>
         <div class="window-body">
           <div class="activity-bar">
-            <div>📁</div><div>🔍</div><div>🌿</div>
+            <!-- Official VS Code Codicon SVG Outlines -->
+            <div class="activity-icon active" title="Explorer">
+              <svg class="codicon" viewBox="0 0 16 16"><path d="M14.5 2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8.5a1.5 1.5 0 0 0 1.5-1.5V3.5A1.5 1.5 0 0 0 14.5 2zm.5 12a.5.5 0 0 1-.5.5H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h8.5a.5.5 0 0 1 .5.5v10.5zM2 5v9.5A1.5 1.5 0 0 0 3.5 16h9v-1h-9a.5.5 0 0 1-.5-.5V5H2z"/></svg>
+            </div>
+            <div class="activity-icon" title="Search">
+              <svg class="codicon" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+            </div>
+            <div class="activity-icon" title="Source Control">
+              <svg class="codicon" viewBox="0 0 16 16"><path d="M15 6.5a2.5 2.5 0 0 0-3.95-2.02l-2.03-2.03a2.5 2.5 0 1 0-1.42 1.42l2.03 2.03a2.484 2.484 0 0 0-.13.6A2.5 2.5 0 0 0 12.5 9c.39 0 .76-.09 1.09-.25l-2.43 2.43a2.5 2.5 0 1 0 1.41 1.41l2.67-2.67c.5.37 1.11.58 1.76.58a2.5 2.5 0 0 0 0-5zM6 3.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm5 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm2.5-6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
+            </div>
+            <div class="activity-icon" title="Run & Debug">
+              <svg class="codicon" viewBox="0 0 16 16"><path d="M11.5 3.5l1.65-1.65-.7-.7-1.74 1.74A5.955 5.955 0 0 0 8 2.5c-.98 0-1.9.24-2.71.66L3.55 1.15l-.7.7 1.65 1.65A6.012 6.012 0 0 0 2 8v1h2v-.5c0-.62.15-1.2.4-1.72L2.69 8.49l.7.7 1.73-1.73c.47.41 1.02.73 1.63.92V14.5a1.5 1.5 0 0 0 1.5 1.5h.5a1.5 1.5 0 0 0 1.5-1.5V8.38c.61-.19 1.16-.51 1.63-.92l1.73 1.73.7-.7-1.71-1.71c.25.52.4 1.1.4 1.72V9h2V8a6.012 6.012 0 0 0-2.5-4.5zM9 14.5a.5.5 0 0 1-.5.5h-.5a.5.5 0 0 1-.5-.5V9h1.5v5.5zm-.5-6.5h-1a4.982 4.982 0 0 1-3.46-1.4A4.966 4.966 0 0 1 3 4.5c0-.82.2-1.59.56-2.27A4.986 4.986 0 0 1 8 3.5c1.78 0 3.34.93 4.22 2.33.48.77.78 1.68.78 2.67h-4.5z"/></svg>
+            </div>
+            <div class="activity-icon" title="Extensions">
+              <svg class="codicon" viewBox="0 0 16 16"><path d="M14 9V6a2 2 0 0 0-2-2H9V2.5A1.5 1.5 0 0 0 7.5 1h-1A1.5 1.5 0 0 0 5 2.5V4H2a2 2 0 0 0-2 2v3h1.5A1.5 1.5 0 0 1 3 10.5v1A1.5 1.5 0 0 1 1.5 13H0v3h3v-1.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5V16h3v-2h2a2 2 0 0 0 2-2v-3h-1.5a1.5 1.5 0 0 1-1.5-1.5v-1a1.5 1.5 0 0 1 1.5-1.5H14zm-1 2h-1.5a2.5 2.5 0 0 0-2.5 2.5V15H8v-1.5A2.5 2.5 0 0 0 5.5 11h-1a2.5 2.5 0 0 0-2.5 2.5V15H1v-1h.5A2.5 2.5 0 0 0 4 11.5v-1A2.5 2.5 0 0 0 1.5 8H1V6a1 1 0 0 1 1-1h4V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5V5h4a1 1 0 0 1 1 1v2h-1.5A2.5 2.5 0 0 0 9 10.5v1a2.5 2.5 0 0 0 2.5 2.5H13v-3z"/></svg>
+            </div>
           </div>
+
           <div class="sidebar">
-            <div style="font-size: 11px; text-transform: uppercase; color: #ffb3c6;">Explorer</div>
-            <div>▸ src</div>
-            <div style="padding-left: 12px; color: #fdf2f8;">📄 auditor.ts</div>
-            <div style="padding-left: 12px; color: #cbd2e1;">📄 benchmark.ts</div>
+            <div class="sidebar-section-header">
+              <span>Explorer</span>
+              <span>•••</span>
+            </div>
+            <div class="tree-item folder" style="color: #fed7e2;">▾ VTG-THEME-PACK</div>
+            <div class="tree-item indent-1 folder" style="color: #fed7e2;">▾ samples</div>
+            <div class="tree-item indent-2 active" style="color: #ffffff; font-weight: 600;">📄 theme-audit-benchmark.ts</div>
+            <div class="tree-item indent-1" style="color: #f5edf2;">📄 package.json</div>
+            <div class="tree-item indent-1" style="color: #cbd2e1;">📄 README.md</div>
           </div>
-          <div class="editor"><span class="cmt-good">// ✅ Crisp Silver-Lavender comment (6.2:1 AA+ readable anywhere)</span>
+
+          <div class="editor-container">
+            <div class="tab-bar">
+              <div class="tab active">
+                <span>📄 theme-audit-benchmark.ts</span>
+              </div>
+              <div class="tab inactive">
+                <span>package.json</span>
+              </div>
+            </div>
+            <div class="editor-content">
+              <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</div>
+              <div class="code-text"><span class="cmt-good">// ✅ Crisp Silver-Lavender comment (6.2:1 AA+ readable anywhere)</span>
 <span class="kw">import</span> { <span class="typ">EventEmitter</span> } <span class="kw">from</span> <span class="str">"node:events"</span>;
 
-<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> {
-  <span class="kw">private readonly</span> <span class="fn">version</span> = <span class="str">"a11y.fy"</span>;
+<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> <span class="kw">extends</span> <span class="typ">EventEmitter</span> {
+  <span class="kw">private readonly</span> <span class="prop">version</span>: <span class="typ">string</span> = <span class="str">"a11y.fy"</span>;
 
-  <span class="kw">public async</span> <span class="fn">auditContrast</span>(): <span class="typ">Promise</span>&lt;<span class="typ">number</span>&gt; {
-    <span class="kw">const</span> <span class="fn">ratio</span> = <span class="num">10.6</span>; <span class="cmt-good">// Passes WCAG AAA</span>
-    <span class="kw">return</span> <span class="fn">ratio</span>;
+  <span class="kw">public async</span> <span class="fn">evaluateContrast</span>(<span class="prop">ratio</span>: <span class="typ">number</span>): <span class="typ">Promise</span>&lt;<span class="typ">boolean</span>&gt; {
+    <span class="kw">if</span> (<span class="prop">ratio</span> &lt; <span class="num">4.5</span>) {
+      <span class="cmt-good">// Crisp dark foreground on peach: 10.6:1 AAA pass</span>
+      <span class="kw">return false</span>;
+    }
+    <span class="kw">return true</span>;
   }
 }</div>
+            </div>
+          </div>
         </div>
         <div class="status-bar">
-          <span>✅ Status Bar: Crisp charcoal on peach (10.6:1 AAA)</span>
-          <span>UTF-8 • TypeScript</span>
+          <div class="status-left">
+            <span class="remote-badge">>< WSL</span>
+            <span>main*</span>
+            <span>✅ Charcoal-plum text on peach (10.6:1 AAA)</span>
+          </div>
+          <div class="status-right">
+            <span>Ln 7, Col 12</span>
+            <span>UTF-8</span>
+            <span>TypeScript</span>
+          </div>
         </div>
       </div>
     </div>
 
+    <!-- Interactive Slider Handle -->
     <div class="slider-handle" id="sliderHandle">
       <div class="slider-button">⇄</div>
     </div>
