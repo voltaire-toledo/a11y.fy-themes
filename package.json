@@ -1,0 +1,22 @@
+{
+  "description": "Personal curated theme pack for Voltaire Toledo, including tuned Pink Cat Boo Dark",
+  "publisher": "voltaire-toledo",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "uiTheme": "vs-dark",
+        "label": "Pink Cat Boo (Tuned)",
+        "path": "./themes/pink-cat-boo-tuned-color-theme.json"
+      }
+    ]
+  },
+  "displayName": "VTG Theme Pack",
+  "name": "vtg-pub-vscode-themes",
+  "categories": [
+    "Themes"
+  ],
+  "version": "0.1.0"
+}
