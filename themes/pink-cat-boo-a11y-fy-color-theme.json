@@ -14,8 +14,8 @@
     "editor.selectionBackground": "#472541",
     "editor.selectionHighlightBackground": "#575b6180",
     "editor.lineHighlightBackground": "#472541",
-    "editor.wordHighlightBackground": "#4747a180",
-    "editor.wordHighlightStrongBackground": "#6767ce80",
+    "editor.wordHighlightBackground": "#38bdf833",
+    "editor.wordHighlightStrongBackground": "#38bdf855",
     "editorBracketMatch.border": "#d0963a",
     "editorCursor.foreground": "#ffedf0",
     "editorError.foreground": "#ff62a5",
@@ -488,14 +488,27 @@
     {
       "name": "Object / Class Property (Light Sky Blue)",
       "scope": [
-        "variable.object.property",
-        "meta.field.declaration",
         "variable.other.property",
-        "support.type.property-name"
+        "variable.other.object.property",
+        "meta.object-literal.key",
+        "support.type.property-name",
+        "entity.name.variable.field",
+        "entity.name.variable.property",
+        "meta.field.declaration variable",
+        "variable.object.property",
+        "source.python meta.attribute",
+        "source.ts meta.field.declaration"
       ],
       "settings": {
         "foreground": "#93d5f8"
       }
     }
-  ]
+  ],
+  "semanticTokenColors": {
+    "property": "#93d5f8",
+    "property.readonly": "#a5e0fc",
+    "variable.other.property": "#93d5f8",
+    "member": "#93d5f8",
+    "parameter": "#9CD162"
+  }
 }
