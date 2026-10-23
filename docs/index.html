@@ -24,7 +24,7 @@
     }
     header {
       text-align: center;
-      max-width: 840px;
+      max-width: 860px;
       margin-bottom: 2rem;
     }
     h1 {
@@ -59,11 +59,11 @@
     .compare-container {
       position: relative;
       width: 100%;
-      max-width: 1150px;
-      height: 620px;
+      max-width: 1180px;
+      height: 720px;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 24px 50px rgba(0,0,0,0.7);
+      box-shadow: 0 24px 55px rgba(0,0,0,0.75);
       background: #181a24;
       user-select: none;
     }
@@ -76,7 +76,7 @@
       display: flex;
       flex-direction: column;
       font-family: "JetBrainsMono Nerd Font", "JuliaMonoForced Nerd Font", monospace;
-      font-size: 13.5px;
+      font-size: 13px;
     }
     
     /* VS Code Title Bar */
@@ -137,7 +137,7 @@
 
     /* Explorer Sidebar */
     .sidebar {
-      width: 230px;
+      width: 220px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -153,28 +153,28 @@
       justify-content: space-between;
     }
     .tree-item {
-      padding: 5px 14px;
+      padding: 4px 14px;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 13px;
+      font-size: 12.5px;
     }
-    .tree-item.folder {
-      font-weight: 600;
-    }
-    .tree-item.indent-1 {
-      padding-left: 28px;
-    }
-    .tree-item.indent-2 {
-      padding-left: 42px;
-    }
-    .tree-item.active {
-      background: rgba(254, 124, 142, 0.15);
+    .tree-item.folder { font-weight: 600; }
+    .tree-item.indent-1 { padding-left: 26px; }
+    .tree-item.indent-2 { padding-left: 38px; }
+    .tree-item.active { background: rgba(254, 124, 142, 0.15); }
+
+    /* Center Main Workspace (Editor + Terminal) */
+    .workspace {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     /* Editor Canvas */
     .editor-container {
-      flex: 1;
+      flex: 1.35;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -190,7 +190,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 12.5px;
+      font-size: 12px;
       position: relative;
     }
     .tab.active {
@@ -199,13 +199,13 @@
     .editor-content {
       flex: 1;
       display: flex;
-      padding: 14px 0;
-      line-height: 1.65;
+      padding: 10px 0;
+      line-height: 1.6;
     }
     .line-numbers {
-      width: 46px;
+      width: 44px;
       text-align: right;
-      padding-right: 14px;
+      padding-right: 12px;
       user-select: none;
     }
     .code-text {
@@ -213,6 +213,37 @@
       padding-left: 8px;
       white-space: pre;
       overflow: hidden;
+    }
+
+    /* Integrated Terminal Panel */
+    .terminal-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .terminal-tabs {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 18px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .terminal-tab.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px;
+    }
+    .terminal-content {
+      flex: 1;
+      padding: 10px 16px;
+      font-size: 12.5px;
+      line-height: 1.55;
+      white-space: pre;
     }
 
     /* Status Bar */
@@ -242,9 +273,7 @@
     /* ---------------------------------
        Original Theme Palette 
        --------------------------------- */
-    .original {
-      z-index: 1;
-    }
+    .original { z-index: 1; }
     .original .window-header { background: #2d2f42; color: #9498a1; }
     .original .activity-bar { background: #202330; color: #fde3e8; }
     .original .sidebar { background: #2d2f42; color: #9498a1; }
@@ -255,6 +284,9 @@
     .original .editor-container { background: #202330; }
     .original .line-numbers { color: #5a5f78; }
     .original .code-text { color: #FFF0F5; }
+    .original .terminal-panel { background: #202330; border-top: 1px solid #2d2f42; }
+    .original .terminal-tabs { background: #202330; color: #9498a1; }
+    .original .terminal-content { color: #ffffff; }
     .original .status-bar { background: #f3b4bf; color: #ffffff; } /* 1.47:1 fail */
     .original .remote-badge { background: #f3b4bf; color: #ffffff; }
 
@@ -277,6 +309,9 @@
     .a11y-fy .editor-container { background: #1e202c; }
     .a11y-fy .line-numbers { color: #7c829e; }
     .a11y-fy .code-text { color: #fdf2f8; }
+    .a11y-fy .terminal-panel { background: #181a24; border-top: 1px solid #292d3f; }
+    .a11y-fy .terminal-tabs { background: #181a24; color: #cbd2e1; }
+    .a11y-fy .terminal-content { color: #f8fafc; }
     .a11y-fy .status-bar { background: #f3b4bf; color: #1d1420; } /* 10.6:1 AAA pass */
     .a11y-fy .remote-badge { background: #202330; color: #fce7f3; }
 
@@ -288,7 +323,18 @@
     .cmt-bad { color: #6D7A72; }
     .cmt-good { color: #a2a8c2; }
     .typ { color: #ff94b8; }
-    .prop { color: #EBA4AC; }
+    
+    /* Blue Property Colors: Dark vs. Light Sky Blue */
+    .prop-bad-blue { color: #4169e1; } /* Dark blue that drowns in dark mode */
+    .prop-good-blue { color: #93d5f8; font-weight: 500; } /* Luminous light sky blue */
+
+    /* Terminal ANSI Colors */
+    .term-dim-blue { color: #3b5998; } /* Murky blue in terminal */
+    .term-sky-blue { color: #70b8ff; } /* Luminous sky blue in terminal */
+    .term-cyan { color: #67e8f9; }
+    .term-green { color: #4ade80; }
+    .term-yellow { color: #fde047; }
+    .term-gray { color: #94a3b8; }
 
     /* Slider UI */
     .slider-handle {
@@ -336,11 +382,12 @@
 
   <header>
     <h1>Pink Cat Boo [a11y.fy]</h1>
-    <p class="subtitle">Real-World WCAG Contrast Calibration & Surface Layering</p>
+    <p class="subtitle">Real-World WCAG Contrast Calibration: Editor, Properties & Integrated Terminal</p>
     <div class="badge-bar">
+      <span class="badge">Property & Terminal Blue: Murky ➔ Light Sky Blue (#93d5f8)</span>
       <span class="badge">Status Bar: 1.47:1 ➔ 10.6:1 (AAA)</span>
       <span class="badge">Comments: 3.4:1 ➔ 6.2:1 (AA+)</span>
-      <span class="badge">Tone-Stepping: Rail ➔ Sidebar ➔ Editor</span>
+      <span class="badge">Mock Terminal Panel Added</span>
     </div>
   </header>
 
@@ -360,7 +407,6 @@
       </div>
       <div class="window-body">
         <div class="activity-bar">
-          <!-- Official VS Code Codicon SVG Outlines -->
           <div class="activity-icon active" title="Explorer">
             <svg class="codicon" viewBox="0 0 16 16"><path d="M14.5 2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8.5a1.5 1.5 0 0 0 1.5-1.5V3.5A1.5 1.5 0 0 0 14.5 2zm.5 12a.5.5 0 0 1-.5.5H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h8.5a.5.5 0 0 1 .5.5v10.5zM2 5v9.5A1.5 1.5 0 0 0 3.5 16h9v-1h-9a.5.5 0 0 1-.5-.5V5H2z"/></svg>
           </div>
@@ -390,39 +436,48 @@
           <div class="tree-item indent-1">📄 README.md</div>
         </div>
 
-        <div class="editor-container">
-          <div class="tab-bar">
-            <div class="tab active">
-              <span>📄 theme-audit-benchmark.ts</span>
+        <div class="workspace">
+          <!-- Editor Area -->
+          <div class="editor-container">
+            <div class="tab-bar">
+              <div class="tab active">
+                <span>📄 theme-audit-benchmark.ts</span>
+              </div>
             </div>
-            <div class="tab inactive">
-              <span>package.json</span>
-            </div>
-          </div>
-          <div class="editor-content">
-            <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</div>
-            <div class="code-text"><span class="cmt-bad">// ❌ Murky comment (3.4:1 contrast - washed out in daylight)</span>
-<span class="kw">import</span> { <span class="typ">EventEmitter</span> } <span class="kw">from</span> <span class="str">"node:events"</span>;
+            <div class="editor-content">
+              <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7</div>
+              <div class="code-text"><span class="cmt-bad">// ❌ Murky comment (3.4:1 contrast) & dark blue properties</span>
+<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> {
+  <span class="kw">public</span> <span class="prop-bad-blue">luminanceRatio</span>: <span class="typ">number</span> = <span class="num">1.47</span>;  <span class="cmt-bad">// ⚠️ Dark blue drowns in background</span>
+  <span class="kw">public</span> <span class="prop-bad-blue">isCompliant</span>: <span class="typ">boolean</span> = <span class="kw">false</span>;
 
-<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> <span class="kw">extends</span> <span class="typ">EventEmitter</span> {
-  <span class="kw">private readonly</span> <span class="prop">version</span>: <span class="typ">string</span> = <span class="str">"original"</span>;
-
-  <span class="kw">public async</span> <span class="fn">evaluateContrast</span>(<span class="prop">ratio</span>: <span class="typ">number</span>): <span class="typ">Promise</span>&lt;<span class="typ">boolean</span>&gt; {
-    <span class="kw">if</span> (<span class="prop">ratio</span> &lt; <span class="num">4.5</span>) {
-      <span class="cmt-bad">// White text on peach status bar: 1.47:1 fail</span>
-      <span class="kw">return false</span>;
-    }
-    <span class="kw">return true</span>;
+  <span class="kw">public async</span> <span class="fn">evaluate</span>(<span class="prop-bad-blue">targetRatio</span>: <span class="typ">number</span>): <span class="typ">Promise</span>&lt;<span class="typ">void</span>&gt; {
+    <span class="kw">this</span>.<span class="prop-bad-blue">luminanceRatio</span> = <span class="prop-bad-blue">targetRatio</span>;
   }
 }</div>
+            </div>
+          </div>
+
+          <!-- Integrated Terminal Area -->
+          <div class="terminal-panel">
+            <div class="terminal-tabs">
+              <span class="terminal-tab active">Terminal</span>
+              <span>Output</span>
+              <span>Debug Console</span>
+            </div>
+            <div class="terminal-content"><span class="term-dim-blue">PS D:\qode\vtg.pub-vscode-themes></span> npx @vscode/vsce package
+<span class="term-gray">[warning]</span> Status bar foreground undefined: falling back to white on peach.
+<span class="term-dim-blue">info:</span> <span class="term-gray">Checking property color tokens against #202330 canvas...</span>
+<span class="term-dim-blue">result:</span> <span class="term-yellow">Low contrast detected on dark blue properties.</span></div>
           </div>
         </div>
       </div>
+
       <div class="status-bar">
         <div class="status-left">
           <span class="remote-badge">>< WSL</span>
           <span>main*</span>
-          <span>⚠️ White text on peach (1.47:1)</span>
+          <span>⚠️ White on peach (1.47:1)</span>
         </div>
         <div class="status-right">
           <span>Ln 7, Col 12</span>
@@ -436,7 +491,7 @@
          A11Y.FY THEME MOCKUP (LEFT SIDE / REVEAL LAYER)
          ============================================== -->
     <div class="mock-window a11y-fy" id="revealLayer">
-      <div style="width: 1150px; height: 100%; display: flex; flex-direction: column;">
+      <div style="width: 1180px; height: 100%; display: flex; flex-direction: column;">
         <div class="window-header">
           <div class="traffic-lights">
             <div class="traffic-dot dot-red"></div>
@@ -448,7 +503,6 @@
         </div>
         <div class="window-body">
           <div class="activity-bar">
-            <!-- Official VS Code Codicon SVG Outlines -->
             <div class="activity-icon active" title="Explorer">
               <svg class="codicon" viewBox="0 0 16 16"><path d="M14.5 2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8.5a1.5 1.5 0 0 0 1.5-1.5V3.5A1.5 1.5 0 0 0 14.5 2zm.5 12a.5.5 0 0 1-.5.5H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h8.5a.5.5 0 0 1 .5.5v10.5zM2 5v9.5A1.5 1.5 0 0 0 3.5 16h9v-1h-9a.5.5 0 0 1-.5-.5V5H2z"/></svg>
             </div>
@@ -478,34 +532,43 @@
             <div class="tree-item indent-1" style="color: #cbd2e1;">📄 README.md</div>
           </div>
 
-          <div class="editor-container">
-            <div class="tab-bar">
-              <div class="tab active">
-                <span>📄 theme-audit-benchmark.ts</span>
+          <div class="workspace">
+            <!-- Editor Area -->
+            <div class="editor-container">
+              <div class="tab-bar">
+                <div class="tab active">
+                  <span>📄 theme-audit-benchmark.ts</span>
+                </div>
               </div>
-              <div class="tab inactive">
-                <span>package.json</span>
-              </div>
-            </div>
-            <div class="editor-content">
-              <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</div>
-              <div class="code-text"><span class="cmt-good">// ✅ Crisp Silver-Lavender comment (6.2:1 AA+ readable anywhere)</span>
-<span class="kw">import</span> { <span class="typ">EventEmitter</span> } <span class="kw">from</span> <span class="str">"node:events"</span>;
+              <div class="editor-content">
+                <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7</div>
+                <div class="code-text"><span class="cmt-good">// ✅ Crisp Silver-Lavender comment & light sky blue properties</span>
+<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> {
+  <span class="kw">public</span> <span class="prop-good-blue">luminanceRatio</span>: <span class="typ">number</span> = <span class="num">10.6</span>; <span class="cmt-good">// ✅ Luminous Sky Blue: 9.8:1 AAA</span>
+  <span class="kw">public</span> <span class="prop-good-blue">isCompliant</span>: <span class="typ">boolean</span> = <span class="kw">true</span>;
 
-<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> <span class="kw">extends</span> <span class="typ">EventEmitter</span> {
-  <span class="kw">private readonly</span> <span class="prop">version</span>: <span class="typ">string</span> = <span class="str">"a11y.fy"</span>;
-
-  <span class="kw">public async</span> <span class="fn">evaluateContrast</span>(<span class="prop">ratio</span>: <span class="typ">number</span>): <span class="typ">Promise</span>&lt;<span class="typ">boolean</span>&gt; {
-    <span class="kw">if</span> (<span class="prop">ratio</span> &lt; <span class="num">4.5</span>) {
-      <span class="cmt-good">// Crisp dark foreground on peach: 10.6:1 AAA pass</span>
-      <span class="kw">return false</span>;
-    }
-    <span class="kw">return true</span>;
+  <span class="kw">public async</span> <span class="fn">evaluate</span>(<span class="prop-good-blue">targetRatio</span>: <span class="typ">number</span>): <span class="typ">Promise</span>&lt;<span class="typ">void</span>&gt; {
+    <span class="kw">this</span>.<span class="prop-good-blue">luminanceRatio</span> = <span class="prop-good-blue">targetRatio</span>;
   }
 }</div>
+              </div>
+            </div>
+
+            <!-- Integrated Terminal Area -->
+            <div class="terminal-panel">
+              <div class="terminal-tabs">
+                <span class="terminal-tab active">Terminal</span>
+                <span>Output</span>
+                <span>Debug Console</span>
+              </div>
+              <div class="terminal-content"><span class="term-sky-blue">PS D:\qode\vtg.pub-vscode-themes></span> npx @vscode/vsce package
+<span class="term-green">DONE</span>  Packaged: <span class="term-cyan">vtg-pub-vscode-themes-0.1.0.vsix</span>
+<span class="term-sky-blue">info:</span> <span class="term-good">Calibrated ANSI Blue (#70b8ff) and Sky Blue properties (#93d5f8)</span>
+<span class="term-green">result:</span> <span class="term-green">WCAG AAA compliance verified across all code layers.</span></div>
             </div>
           </div>
         </div>
+
         <div class="status-bar">
           <div class="status-left">
             <span class="remote-badge">>< WSL</span>
