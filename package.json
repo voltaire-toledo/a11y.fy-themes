@@ -1,22 +1,77 @@
 {
-  "description": "Personal curated theme pack for Voltaire Toledo, including tuned Pink Cat Boo Dark",
-  "publisher": "voltaire-toledo",
-  "engines": {
-    "vscode": "^1.80.0"
-  },
-  "contributes": {
-    "themes": [
-      {
-        "uiTheme": "vs-dark",
-        "label": "Pink Cat Boo (Tuned)",
-        "path": "./themes/pink-cat-boo-tuned-color-theme.json"
-      }
-    ]
-  },
-  "displayName": "VTG Theme Pack",
-  "name": "vtg-pub-vscode-themes",
-  "categories": [
-    "Themes"
-  ],
-  "version": "0.1.0"
+    "description":  "Personal curated theme pack for Voltaire Toledo, including tuned Pink Cat Boo Dark",
+    "publisher":  "voltaire-toledo",
+    "engines":  {
+                    "vscode":  "^1.80.0"
+                },
+    "contributes":  {
+                        "themes":  [
+                                       {
+                                           "path":  "./themes/pink-cat-boo-a11y-fy-color-theme.json",
+                                           "uiTheme":  "vs-dark",
+                                           "label":  "Pink Cat Boo [a11y.fy]"
+                                       },
+                                       {
+                                           "label":  "Catppuccin Mocha [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/catppuccin-mocha-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "Catppuccin Macchiato [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/catppuccin-macchiato-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "Catppuccin Frappé [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/catppuccin-frappe-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "Tokyo Night [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/tokyo-night-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "Tokyo Night Storm [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/tokyo-night-storm-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "Dracula [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/dracula-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "Dracula Soft [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/dracula-soft-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "One Dark Pro [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/one-dark-pro-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "One Dark Pro Darker [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/one-dark-pro-darker-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "Gruvbox Material Dark [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/gruvbox-material-dark-a11y-fy-color-theme.json"
+                                       },
+                                       {
+                                           "label":  "SynthWave \u002784 [a11y.fy]",
+                                           "uiTheme":  "vs-dark",
+                                           "path":  "./themes/synthwave-84-a11y-fy-color-theme.json"
+                                       }
+                                   ]
+                    },
+    "displayName":  "VTG Theme Pack",
+    "name":  "vtg-pub-vscode-themes",
+    "categories":  [
+                       "Themes"
+                   ],
+    "version":  "0.1.0"
 }
