@@ -51,7 +51,6 @@
     "sideBar.background": "#242636",
     "sideBarSectionHeader.background": "#1c1e2b",
     "tab.inactiveBackground": "#202231",
-    "tab.border": "#9498a144",
     "tab.inactiveForeground": "#cbd2e1",
     "tab.activeForeground": "#ff75a0",
     "tab.activeBorderTop": "#fe7c8e",
@@ -84,7 +83,12 @@
     "sideBarSectionHeader.foreground": "#ffccd5",
     "tab.activeBackground": "#1e202c",
     "terminal.ansiBrightBlue": "#99ccff",
-    "terminal.ansiBrightCyan": "#a5f3fc"
+    "terminal.ansiBrightCyan": "#a5f3fc",
+    "sideBar.border": "#00000000",
+    "activityBar.border": "#00000000",
+    "editorGroup.border": "#00000000",
+    "panel.border": "#00000000",
+    "tab.border": "#00000000"
   },
   "tokenColors": [
     {
