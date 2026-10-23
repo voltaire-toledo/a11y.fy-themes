@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pink Cat Boo: Before & After [a11y.fy] Comparison</title>
+  <style>
+    :root {
+      --bg-page: #0f1117;
+      --card-bg: #161822;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #ff75a0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ff75a0, #f3b4bf);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    .badge-bar {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .badge {
+      background: #242636;
+      border-radius: 9999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.85rem;
+      color: #fed7e2;
+    }
+
+    /* Comparison Container */
+    .compare-container {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      aspect-ratio: 16 / 10;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      background: #1e1e24;
+      user-select: none;
+    }
+    .mock-window {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: "JetBrainsMono Nerd Font", "JuliaMonoForced Nerd Font", monospace;
+      font-size: 14px;
+    }
+    
+    /* Top Bar */
+    .window-header {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .window-body {
+      flex: 1;
+      display: flex;
+    }
+    .activity-bar {
+      width: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 12px;
+      gap: 16px;
+    }
+    .sidebar {
+      width: 220px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .editor {
+      flex: 1;
+      padding: 16px 20px;
+      line-height: 1.6;
+      white-space: pre;
+      overflow: hidden;
+    }
+    .status-bar {
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Original Theme Styles */
+    .original {
+      z-index: 1;
+    }
+    .original .window-header { background: #2d2f42; color: #9498a1; }
+    .original .activity-bar { background: #202330; color: #fde3e8; }
+    .original .sidebar { background: #2d2f42; color: #9498a1; }
+    .original .editor { background: #202330; color: #FFF0F5; }
+    .original .status-bar { background: #f3b4bf; color: #ffffff; } /* The 1.47:1 fail */
+
+    /* A11y.fy Theme Styles */
+    .a11y-fy {
+      z-index: 2;
+      width: 50%;
+      overflow: hidden;
+      border-right: 2px solid var(--accent);
+    }
+    .a11y-fy .window-header { background: #242636; color: #ffb3c6; }
+    .a11y-fy .activity-bar { background: #181a24; color: #fed7e2; }
+    .a11y-fy .sidebar { background: #242636; color: #f5edf2; }
+    .a11y-fy .editor { background: #1e202c; color: #fdf2f8; }
+    .a11y-fy .status-bar { background: #f3b4bf; color: #1d1420; } /* The 10.6:1 AAA pass */
+
+    /* Slider Handle */
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--accent);
+      cursor: ew-resize;
+      z-index: 10;
+    }
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #181a24;
+      border: 2px solid var(--accent);
+      color: #ff75a0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    /* Range input overlay for full touch/mouse control */
+    .slider-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 20;
+    }
+
+    /* Code Syntax Simulation */
+    .kw { color: #FF4791; font-weight: bold; }
+    .fn { color: #ffc85b; }
+    .str { color: #FAE8B6; }
+    .num { color: #FF38A2; }
+    .cmt-bad { color: #6D7A72; } /* Original murky comment */
+    .cmt-good { color: #a2a8c2; } /* A11y.fy crisp lavender */
+    .typ { color: #ff94b8; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Pink Cat Boo [a11y.fy]</h1>
+    <p class="subtitle">Direct WCAG Contrast & Luminance Layering Comparison</p>
+    <div class="badge-bar">
+      <span class="badge">Status Bar: 1.47:1 ➔ 10.6:1 (AAA)</span>
+      <span class="badge">Comments: 3.4:1 ➔ 6.2:1 (AA+)</span>
+      <span class="badge">Surface Tone Elevation (No Borders)</span>
+    </div>
+  </header>
+
+  <div class="compare-container" id="compareBox">
+    <!-- Original (Right / Underneath) -->
+    <div class="mock-window original">
+      <div class="window-header">
+        <span>Pink Cat Boo (Original)</span>
+      </div>
+      <div class="window-body">
+        <div class="activity-bar">
+          <div>📁</div><div>🔍</div><div>🌿</div>
+        </div>
+        <div class="sidebar">
+          <div style="font-size: 11px; text-transform: uppercase;">Explorer</div>
+          <div>▸ src</div>
+          <div style="padding-left: 12px;">📄 auditor.ts</div>
+          <div style="padding-left: 12px;">📄 benchmark.ts</div>
+        </div>
+        <div class="editor"><span class="cmt-bad">// ❌ Murky comment (3.4:1 contrast - hard to read in daylight)</span>
+<span class="kw">import</span> { <span class="typ">EventEmitter</span> } <span class="kw">from</span> <span class="str">"node:events"</span>;
+
+<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> {
+  <span class="kw">private readonly</span> <span class="fn">version</span> = <span class="str">"original"</span>;
+
+  <span class="kw">public async</span> <span class="fn">auditContrast</span>(): <span class="typ">Promise</span>&lt;<span class="typ">number</span>&gt; {
+    <span class="kw">const</span> <span class="fn">ratio</span> = <span class="num">1.47</span>; <span class="cmt-bad">// Fails WCAG AA</span>
+    <span class="kw">return</span> <span class="fn">ratio</span>;
+  }
+}</div>
+      </div>
+      <div class="status-bar">
+        <span>⚠️ Status Bar: White on peach (1.47:1 - Invisible)</span>
+        <span>UTF-8 • TypeScript</span>
+      </div>
+    </div>
+
+    <!-- A11y.fy (Left / Revealing layer) -->
+    <div class="mock-window a11y-fy" id="revealLayer">
+      <div style="width: 1100px; height: 100%; display: flex; flex-direction: column;">
+        <div class="window-header">
+          <span>Pink Cat Boo [a11y.fy]</span>
+        </div>
+        <div class="window-body">
+          <div class="activity-bar">
+            <div>📁</div><div>🔍</div><div>🌿</div>
+          </div>
+          <div class="sidebar">
+            <div style="font-size: 11px; text-transform: uppercase; color: #ffb3c6;">Explorer</div>
+            <div>▸ src</div>
+            <div style="padding-left: 12px; color: #fdf2f8;">📄 auditor.ts</div>
+            <div style="padding-left: 12px; color: #cbd2e1;">📄 benchmark.ts</div>
+          </div>
+          <div class="editor"><span class="cmt-good">// ✅ Crisp Silver-Lavender comment (6.2:1 AA+ readable anywhere)</span>
+<span class="kw">import</span> { <span class="typ">EventEmitter</span> } <span class="kw">from</span> <span class="str">"node:events"</span>;
+
+<span class="kw">export class</span> <span class="typ">ThemeAuditor</span> {
+  <span class="kw">private readonly</span> <span class="fn">version</span> = <span class="str">"a11y.fy"</span>;
+
+  <span class="kw">public async</span> <span class="fn">auditContrast</span>(): <span class="typ">Promise</span>&lt;<span class="typ">number</span>&gt; {
+    <span class="kw">const</span> <span class="fn">ratio</span> = <span class="num">10.6</span>; <span class="cmt-good">// Passes WCAG AAA</span>
+    <span class="kw">return</span> <span class="fn">ratio</span>;
+  }
+}</div>
+        </div>
+        <div class="status-bar">
+          <span>✅ Status Bar: Crisp charcoal on peach (10.6:1 AAA)</span>
+          <span>UTF-8 • TypeScript</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-handle" id="sliderHandle">
+      <div class="slider-button">⇄</div>
+    </div>
+
+    <input type="range" min="0" max="100" value="50" class="slider-input" id="rangeSlider" aria-label="Comparison slider">
+  </div>
+
+  <script>
+    const slider = document.getElementById("rangeSlider");
+    const revealLayer = document.getElementById("revealLayer");
+    const sliderHandle = document.getElementById("sliderHandle");
+
+    slider.addEventListener("input", (e) => {
+      const val = e.target.value;
+      revealLayer.style.width = val + "%";
+      sliderHandle.style.left = val + "%";
+    });
+  </script>
+</body>
+</html>
