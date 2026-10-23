@@ -1,0 +1,26 @@
+project_name: "a11y-fy-themes"
+default_status: "To Do"
+statuses: ["To Do", "In Progress", "Done"]
+labels: ["pink-cat-boo", "catppuccin", "tokyo-night", "dracula", "one-dark-pro", "gruvbox", "synthwave"]
+definition_of_done: [
+  "1. Verified WCAG AAA contrast for core tokens and AA+ for comments (>5.0:1)",
+  "2. Zero glare: status bar matches window (#302f42) or deep plum with crisp text",
+  "3. Light Sky Blue (#93d5f8) used for property names and terminal blues",
+  "4. Git decorations verified: modified yellow (#fde047), untracked green (#4ade80)",
+  "5. Zero divider borders around sidebars and panels",
+  "6. Extension packaged (.vsix) and verified in VS Code",
+  "7. Interactive slider in docs/index.html updated with comparison"
+]
+date_format: yyyy-mm-dd
+max_column_width: 25
+default_editor: "notepad"
+auto_open_browser: false
+default_port: 6420
+remote_operations: false
+auto_commit: false
+filesystem_only: false
+bypass_git_hooks: false
+check_active_branches: true
+active_branch_days: 30
+task_prefix: "task"
+backlog_directory: ".ai/.backlog"
