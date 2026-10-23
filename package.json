@@ -1,77 +1,102 @@
 {
-    "description":  "Personal curated theme pack for Voltaire Toledo, including tuned Pink Cat Boo Dark",
-    "publisher":  "voltaire-toledo",
-    "engines":  {
-                    "vscode":  "^1.80.0"
-                },
-    "contributes":  {
-                        "themes":  [
-                                       {
-                                           "path":  "./themes/pink-cat-boo-a11y-fy-color-theme.json",
-                                           "uiTheme":  "vs-dark",
-                                           "label":  "Pink Cat Boo [a11y.fy]"
-                                       },
-                                       {
-                                           "label":  "Catppuccin Mocha [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/catppuccin-mocha-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "Catppuccin Macchiato [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/catppuccin-macchiato-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "Catppuccin Frappé [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/catppuccin-frappe-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "Tokyo Night [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/tokyo-night-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "Tokyo Night Storm [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/tokyo-night-storm-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "Dracula [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/dracula-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "Dracula Soft [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/dracula-soft-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "One Dark Pro [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/one-dark-pro-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "One Dark Pro Darker [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/one-dark-pro-darker-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "Gruvbox Material Dark [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/gruvbox-material-dark-a11y-fy-color-theme.json"
-                                       },
-                                       {
-                                           "label":  "SynthWave \u002784 [a11y.fy]",
-                                           "uiTheme":  "vs-dark",
-                                           "path":  "./themes/synthwave-84-a11y-fy-color-theme.json"
-                                       }
-                                   ]
-                    },
-    "displayName":  "VTG Theme Pack",
-    "name":  "vtg-pub-vscode-themes",
-    "categories":  [
-                       "Themes"
-                   ],
-    "version":  "0.1.0"
+  "description": "Curated, high-contrast, WCAG-calibrated dark themes engineered by Voltaire Toledo for zero-glare, fatigue-free coding. Published by Proventuras.",
+  "publisher": "proventuras",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "path": "./themes/pink-cat-boo-a11y-fy-color-theme.json",
+        "uiTheme": "vs-dark",
+        "label": "Pink Cat Boo [a11y.fy]"
+      },
+      {
+        "label": "Catppuccin Mocha [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/catppuccin-mocha-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "Catppuccin Macchiato [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/catppuccin-macchiato-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "Catppuccin Frappé [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/catppuccin-frappe-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "Tokyo Night [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "Tokyo Night Storm [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night-storm-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "Dracula [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dracula-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "Dracula Soft [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dracula-soft-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "One Dark Pro [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/one-dark-pro-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "One Dark Pro Darker [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/one-dark-pro-darker-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "Gruvbox Material Dark [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/gruvbox-material-dark-a11y-fy-color-theme.json"
+      },
+      {
+        "label": "SynthWave '84 [a11y.fy]",
+        "uiTheme": "vs-dark",
+        "path": "./themes/synthwave-84-a11y-fy-color-theme.json"
+      }
+    ]
+  },
+  "displayName": "VTG Theme Pack [a11y.fy]",
+  "name": "vtg-pub-vscode-themes",
+  "categories": [
+    "Themes"
+  ],
+  "version": "0.1.0",
+  "author": {
+    "name": "Voltaire Toledo",
+    "email": "voltaire@proventuras.com",
+    "url": "https://proventuras.com"
+  },
+  "homepage": "https://proventuras.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/voltaire-toledo/vtg.pub-vscode-themes"
+  },
+  "keywords": [
+    "a11y",
+    "accessibility",
+    "wcag",
+    "high-contrast",
+    "pink cat boo",
+    "catppuccin",
+    "tokyo night",
+    "dracula",
+    "one dark pro",
+    "gruvbox",
+    "synthwave",
+    "voltaire toledo",
+    "proventuras"
+  ]
 }
