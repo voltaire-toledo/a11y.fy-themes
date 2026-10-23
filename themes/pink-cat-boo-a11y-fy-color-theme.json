@@ -27,10 +27,10 @@
     "extensionButton.prominentHoverBackground": "#fe7c8e",
     "input.background": "#202330",
     "inputOption.activeBorder": "#fe7c8e",
-    "list.activeSelectionBackground": "#d0963a",
-    "list.focusBackground": "#707070",
-    "list.inactiveSelectionBackground": "#765d36",
-    "list.hoverBackground": "#565970",
+    "list.activeSelectionBackground": "#442b3b",
+    "list.focusBackground": "#442b3b",
+    "list.inactiveSelectionBackground": "#382436",
+    "list.hoverBackground": "#2f283d",
     "list.highlightForeground": "#FFFFFF",
     "list.errorForeground": "#ff62a5",
     "menu.separatorBackground": "#f3b4bf",
@@ -88,7 +88,13 @@
     "activityBar.border": "#00000000",
     "editorGroup.border": "#00000000",
     "panel.border": "#00000000",
-    "tab.border": "#00000000"
+    "tab.border": "#00000000",
+    "list.activeSelectionForeground": "#ffffff",
+    "list.activeSelectionIconForeground": "#ff75a0",
+    "list.inactiveSelectionForeground": "#fed7e2",
+    "list.inactiveSelectionIconForeground": "#f3b4bf",
+    "list.hoverForeground": "#ffffff",
+    "list.focusForeground": "#ffffff"
   },
   "tokenColors": [
     {
