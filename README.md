@@ -34,7 +34,7 @@ Built-in OS high-contrast themes often resort to neon-green outlines on stark `#
 
 Here is the direct before-and-after visual breakdown showing what changed and why:
 
-![Pink Cat Boo Before and After Comparison](./docs/assets/pink-cat-boo-split-comparison.svg)
+<!-- TODO: add simple PNG before/after comparison image (SVGs are rejected by vsce) -->
 
 ### What Changed in Pink Cat Boo:
 

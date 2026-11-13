@@ -1,0 +1,6 @@
+# Allowlist packaging: exclude everything, then re-include only what the theme pack needs.
+# Keeps secrets (.env), agent scaffolding, scripts, and backlog out of the .vsix.
+**
+!package.json
+!README.md
+!themes/*.json
